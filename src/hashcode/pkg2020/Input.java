@@ -23,7 +23,7 @@ public class Input {
         //Copie : newArrayList = (ArrayList<Integer>)ArrayList.clone();
         //Ajout : ArrayList.add(element);
 
-        /*Lecture fichier : 
+        /*Lecture fichier :
             BufferedReader reader = new BufferedReader(new FileReader("nomFichier.in"));
             String S = S = reader.readLine();
          */
@@ -31,14 +31,14 @@ public class Input {
         int B = 0, L = 0, D = 0;
         BufferedReader reader = null;
         try {
-            reader = new BufferedReader(new FileReader("f_libraries_of_the_world.txt"));
+            reader = new BufferedReader(new FileReader("e_so_many_books.txt"));
             String S = reader.readLine();
             String Tab[] = S.split(" ");
             B = Integer.valueOf(Tab[0]);
             L = Integer.valueOf(Tab[1]);
             D = Integer.valueOf(Tab[2]);
 
-            
+
             S = reader.readLine();
             String Tab2[] = S.split(" ");
             for (int i = 0; i < B; i++) {
@@ -72,19 +72,19 @@ public class Input {
 //        BufferedReader reader = null;
 //        try {
 //            reader = new BufferedReader(new FileReader("d_quite_big.in"));
-//            
+//
 //            String S = reader.readLine();
 //            String T1[] = S.split(" ");
 //            M = Integer.valueOf(T1[0]);
 //            N = Integer.valueOf(T1[0]);
-//            
+//
 //            S = reader.readLine();
 //            String T2[] = S.split(" ");
 //            for (int i = 0; i < N; i++) {
 //                Pizza.add(Integer.valueOf(T2[i]));
-//            }   
-//            
-//            
+//            }
+//
+//
 //
 //        } catch (FileNotFoundException ex) {
 //            Logger.getLogger(Input.class.getName()).log(Level.SEVERE, null, ex);
