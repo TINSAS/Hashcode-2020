@@ -21,7 +21,7 @@ public class Output {
 
     public static void output(ArrayList<Librairie> list) {
 
-        File output = new File("output.in");
+        File output = new File("output.out");
         try {
             FileWriter fw = new FileWriter(output);
             
