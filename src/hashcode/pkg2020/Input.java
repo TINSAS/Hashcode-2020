@@ -97,6 +97,7 @@ public class Input {
 //                Logger.getLogger(Input.class.getName()).log(Level.SEVERE, null, ex);
 //            }
 //        }
+System.out.println(""+ListeLibrairies);
         return new Transport(D, ListeLibrairies);
     }
 }
