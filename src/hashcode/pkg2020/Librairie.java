@@ -12,13 +12,15 @@ import java.util.ArrayList;
  * @author Leon
  */
 public class Librairie {
+    public int id;
     public int N;
     public int T;
     public int M;
     public ArrayList<Livre> livres;
     public ArrayList<Livre> livresScanne;
 
-    public Librairie(int N, int T, int M, ArrayList<Livre> livres) {
+    public Librairie(int id, int N, int T, int M, ArrayList<Livre> livres) {
+        this.id = id;
         this.N = N;
         this.T = T;
         this.M = M;
