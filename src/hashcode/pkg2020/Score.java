@@ -43,6 +43,7 @@ public class Score {
             }
         }
         System.out.println("Jour utilisé " +signup);
+        System.out.println("Scores : "+score+"  "+score_d);
         if(score_d != score){
             System.err.println("SCORE FINAL DIFFERENT DU SCORE REEL T NUL LEON");
         }

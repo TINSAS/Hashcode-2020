@@ -19,8 +19,6 @@ public class Hashcode2020 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int power = 1, Max;
-        double ind=0;
         Transport transport = Input.input();
 
         int d = transport.D;
@@ -51,50 +49,19 @@ public class Hashcode2020 {
             monde.get(i).print();
         }
         System.out.println("Fin Monde");*/
-        ArrayList<Librairie> soluc = new ArrayList<Librairie>();
-        soluc = trouveSolution(monde, d, l, 0);
-        //System.out.println("Score : " + Score.score(soluc, d));
-        Max = Score.score(soluc, d);
-        for (int i = 1; i <= 10; i++) {
-            soluc = trouveSolution(monde, d, l, i);
-            //System.out.println("Score : " + Score.score(soluc, d));
-            if(Score.score(soluc, d)>Max){
-                Max=Score.score(soluc, d);
-                ind =i;
-                //System.out.println(ind);
-            }
-        }
-        for (int i = 1; i <= 10; i++) {
-            soluc = trouveSolution(monde, d, l, ind+0.1*i);
-            //System.out.println("Score : " + Score.score(soluc, d));
-            if(Score.score(soluc, d)>Max){
-                Max=Score.score(soluc, d);
-                ind =ind+0.1*i;
-                //System.out.println(ind);
-            }
-        }
-        //System.out.println(ind);
-
-        soluc = trouveSolution(monde, d, l, ind);
-        System.out.println("Score : " + Score.score(soluc, d));
-
-
-
-
+        ArrayList<Librairie> soluc = trouveSolution(monde, d, l);
 
         /*System.out.println("Soluc : ");
         for (int i = 0; i < soluc.size(); i++) {
             soluc.get(i).printSoluc();
         }
         System.out.println("Fin Soluc");*/
+        System.out.println("Score : " + Score.score(soluc, d));
         Output.output(soluc);
     }
 
-    public static ArrayList<Librairie> trouveSolution(ArrayList<Librairie> monde, int d, int l, double power) {
+    public static ArrayList<Librairie> trouveSolution(ArrayList<Librairie> monde, int d, int l) {
         ArrayList<Librairie> soluc = new ArrayList<>();
-        for (int i = 0; i < monde.size(); i++) {
-            monde.get(i).calculScorLib(power);
-        }
         Collections.sort(monde, Collections.reverseOrder());
 
         int jour = 0;
@@ -108,7 +75,7 @@ public class Hashcode2020 {
                 //counter++;
                 jour += tmp.T;
 
-
+                
                 //on met les livres à scanner
                 int jour2 = tmp.jourDebut;
                 int counter2 = 0;
@@ -127,9 +94,9 @@ public class Hashcode2020 {
                 }
                 monde.remove(0);
                 Collections.sort(monde, Collections.reverseOrder());
-
-
-
+                
+                
+                
             } else {
                 monde.remove(0);//counter++;
             }
@@ -141,7 +108,6 @@ public class Hashcode2020 {
 
         for (int i = 0; i < soluc.size(); i++) {
             tmp = soluc.get(i);
-
             Collections.sort(tmp.livres);
         }
         return soluc;
