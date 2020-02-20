@@ -65,7 +65,7 @@ public class Hashcode2020 {
 
     public static ArrayList<Librairie> trouveSolution(ArrayList<Librairie> monde, int d, int l) {
         ArrayList<Librairie> soluc = new ArrayList<>();
-        Collections.sort(monde);
+        Collections.sort(monde, Collections.reverseOrder());
 
         int jour = 0;
         int counter = 0;
