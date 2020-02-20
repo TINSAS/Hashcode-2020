@@ -34,10 +34,11 @@ public class Librairie implements Comparable<Librairie>{
         for (int i = 0; i < livres.size(); i++) {
             scoreLib+=livres.get(i).valeur;
         }
-        System.out.println("Score Lib :"+scoreLib+"  "+T);
-        System.out.println(""+scoreLib/T/T/T/T/T);
-        scoreLib=scoreLib/T/T/T/T/T;
-        System.out.println("    Score Lib :"+scoreLib);
+        //System.out.println("Score Lib :"+scoreLib+"  "+T);
+        //System.out.println(""+scoreLib/T/T/T/T/T);
+        scoreLib=scoreLib/T;
+        //System.out.println("    Score Lib :"+scoreLib);
+        scoreLib+=(int)(0.01*scoreLib*Math.random());
     }
 
     public void print() {
@@ -56,7 +57,7 @@ public class Librairie implements Comparable<Librairie>{
 
     @Override
     public int compareTo(Librairie arg0) {
-        return this.scoreLib.compareTo(arg0.scoreLib);
+        return scoreLib.compareTo(arg0.scoreLib);
     }
     
     
