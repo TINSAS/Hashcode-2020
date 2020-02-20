@@ -70,10 +70,14 @@ public class Hashcode2020 {
         Librairie tmp;
         while (jour < d && counter < l) {
             tmp = monde.get(counter);
-            tmp.jourDebut = jour;
-            soluc.add(tmp);
-            counter++;
-            jour += tmp.T;
+            if ((d - jour - tmp.T - 1) > 0) {
+                tmp.jourDebut = jour;
+                soluc.add(tmp);
+                counter++;
+                jour += tmp.T;
+            } else {
+                counter++;
+            }
             //System.out.println("" + jour);
         }
         if (jour > d) {
