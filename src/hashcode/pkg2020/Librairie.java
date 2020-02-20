@@ -15,5 +15,16 @@ public class Librairie {
     int N;
     int T;
     int M;
-    ArrayList<Integer> livres;
+    ArrayList<Livre> livres;
+    ArrayList<Livre> livresScanne;
+
+    public Librairie(int N, int T, int M, ArrayList<Livre> livres) {
+        this.N = N;
+        this.T = T;
+        this.M = M;
+        this.livres = livres;
+        this.livresScanne = new ArrayList<>();
+    }
+    
+    
 }
