@@ -54,7 +54,7 @@ public class Input {
                 for (int j = 0; j < Tab4.length; j++) {
                     Livres.add(ListeLivres.get(Integer.valueOf(Tab4[j])));
                 }
-                ListeLibrairies.add(new Librairie(Integer.valueOf(Tab3[0]), Integer.valueOf(Tab3[1]), Integer.valueOf(Tab3[2]), Livres));
+                ListeLibrairies.add(new Librairie(i,Integer.valueOf(Tab3[0]), Integer.valueOf(Tab3[1]), Integer.valueOf(Tab3[2]), Livres));
             }
             for (int i = 0; i < ListeLibrairies.size(); i++) {
                 for (int j = 0; j < ListeLibrairies.get(i).livres.size(); j++) {
