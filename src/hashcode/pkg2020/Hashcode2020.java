@@ -87,9 +87,15 @@ public class Hashcode2020 {
             Collections.sort(tmp.livres);
             int jour2 = tmp.jourDebut;
             int counter2=0;
-            while (jour2<d && counter2<tmp.livres.size()) {                
-                tmp.livresScanne.add(tmp.livres.get(counter2));
-                counter2++;
+            while (jour2<d && counter2<tmp.livres.size()) { 
+                for(int j=0;i<tmp.M;i++){
+                   if(tmp.livres.get(counter2).Scanné==0){
+                    tmp.livresScanne.add(tmp.livres.get(counter2));
+                    tmp.livres.get(counter2).Scanné=1;
+                }
+                counter2++; 
+                }
+                
                 jour2+=1;
             }
         }
