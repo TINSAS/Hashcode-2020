@@ -9,9 +9,9 @@ package hashcode.pkg2020;
  *
  * @author Leon
  */
-public class Livre {
+public class Livre implements Comparable<Livre>{
     public int id;
-    public int valeur;
+    public Integer valeur;
 
     public Livre(int id, int valeur) {
         this.id = id;
@@ -20,5 +20,10 @@ public class Livre {
 
     void print() {
         System.out.println("    Livre "+id+" de valeur "+valeur);
+    }
+
+    @Override
+    public int compareTo(Livre arg0) {
+        return this.valeur.compareTo(arg0.valeur);
     }
 }

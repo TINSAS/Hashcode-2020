@@ -20,6 +20,7 @@ public class Librairie implements Comparable<Librairie>{
     public Integer somme;
     public ArrayList<Livre> livres;
     public ArrayList<Livre> livresScanne;
+    public int jourDebut;
 
     public Librairie(int id, int N, int T, int M, ArrayList<Livre> livres) {
         this.id = id;
@@ -28,6 +29,7 @@ public class Librairie implements Comparable<Librairie>{
         this.M = M;
         this.livres = livres;
         this.livresScanne = new ArrayList<>();
+        this.somme=0;
         
         for (int i = 0; i < livres.size(); i++) {
             somme+=livres.get(i).valeur;
@@ -38,6 +40,13 @@ public class Librairie implements Comparable<Librairie>{
         System.out.println("Librairie " + id);
         for (int i = 0; i < livres.size(); i++) {
             livres.get(i).print();
+        }
+    }
+
+    public void printSoluc() {
+        System.out.println("Librairie " + id);
+        for (int i = 0; i < livresScanne.size(); i++) {
+            livresScanne.get(i).print();
         }
     }
 
