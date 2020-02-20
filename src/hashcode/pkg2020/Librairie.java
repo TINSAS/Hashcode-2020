@@ -47,7 +47,7 @@ public class Librairie implements Comparable<Librairie> {
         }
         //System.out.println("Score Lib :"+scoreLib+"  "+T);
         //System.out.println(""+scoreLib/T/T/T/T/T);
-        this.scoreLib = this.scoreLib / (int) Math.pow(T, power);
+        this.scoreLib = (int)(this.scoreLib /  Math.pow(T, power));
         //System.out.println("    Score Lib :"+scoreLib);
     }
 
