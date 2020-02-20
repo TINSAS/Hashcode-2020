@@ -21,10 +21,10 @@ public class Hashcode2020 {
     public static void main(String[] args) {
         Transport transport = Input.input();
 
-        int d=transport.D;
+        int d = transport.D;
         ArrayList<Librairie> monde = transport.ListLibrairies;
-        System.out.println(""+monde);
-        System.out.println(""+d);
+        System.out.println("" + monde);
+        System.out.println("" + d);
         int l = monde.size();
         /*ArrayList<Librairie> monde = new ArrayList<>();
         int d = 7;
@@ -45,12 +45,11 @@ public class Hashcode2020 {
         lib2.add(new Livre(0, 1));
         monde.add(new Librairie(1, 4, 3, 1, lib2));*/
 
-        /*System.out.println("Monde : ");
+ /*System.out.println("Monde : ");
         for (int i = 0; i < monde.size(); i++) {
             monde.get(i).print();
         }
         System.out.println("Fin Monde");*/
-
         ArrayList<Librairie> soluc = trouveSolution(monde, d, l);
 
         /*System.out.println("Soluc : ");
@@ -58,8 +57,7 @@ public class Hashcode2020 {
             soluc.get(i).printSoluc();
         }
         System.out.println("Fin Soluc");*/
-
-        System.out.println("Score : "+Score.score(soluc, d));
+        System.out.println("Score : " + Score.score(soluc, d));
         Output.output(soluc);
     }
 
@@ -72,7 +70,7 @@ public class Hashcode2020 {
         Librairie tmp;
         while (jour < d && counter < l) {
             tmp = monde.get(counter);
-            tmp.jourDebut=jour;
+            tmp.jourDebut = jour;
             soluc.add(tmp);
             counter++;
             jour += tmp.T;
@@ -81,22 +79,23 @@ public class Hashcode2020 {
         if (jour > d) {
             soluc.remove(soluc.size() - 1);
         }
-        
+
         for (int i = 0; i < soluc.size(); i++) {
             tmp = soluc.get(i);
             Collections.sort(tmp.livres);
             int jour2 = tmp.jourDebut;
-            int counter2=0;
-            while (jour2<d && counter2<tmp.livres.size()) { 
-                for(int j=0;j<tmp.M;j++){
-                   if(tmp.livres.get(counter2).Scanne==false){
-                    tmp.livresScanne.add(tmp.livres.get(counter2));
-                    tmp.livres.get(counter2).Scanne=true;
+            int counter2 = 0;
+            while (jour2 < d && counter2 < tmp.livres.size()) {
+                for (int j = 0; j < tmp.M; j++) {
+                    if(counter2 >= tmp.livres.size()){break;}
+                    if (tmp.livres.get(counter2).Scanne == false) {
+                        tmp.livresScanne.add(tmp.livres.get(counter2));
+                        tmp.livres.get(counter2).Scanne = true;
+                    }
+                    counter2++;
                 }
-                counter2++; 
-                }
-                
-                jour2+=1;
+
+                jour2 += 1;
             }
         }
         return soluc;
