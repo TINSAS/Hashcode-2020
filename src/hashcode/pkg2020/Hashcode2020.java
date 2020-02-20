@@ -24,6 +24,7 @@ public class Hashcode2020 {
         int d=transport.D;
         ArrayList<Librairie> monde = transport.ListLibrairies;
         System.out.println(""+monde);
+        System.out.println(""+d);
         int l = monde.size();
         /*ArrayList<Librairie> monde = new ArrayList<>();
         int d = 7;
@@ -44,19 +45,19 @@ public class Hashcode2020 {
         lib2.add(new Livre(0, 1));
         monde.add(new Librairie(1, 4, 3, 1, lib2));*/
 
-        System.out.println("Monde : ");
+        /*System.out.println("Monde : ");
         for (int i = 0; i < monde.size(); i++) {
             monde.get(i).print();
         }
-        System.out.println("Fin Monde");
+        System.out.println("Fin Monde");*/
 
         ArrayList<Librairie> soluc = trouveSolution(monde, d, l);
 
-        System.out.println("Soluc : ");
+        /*System.out.println("Soluc : ");
         for (int i = 0; i < soluc.size(); i++) {
             soluc.get(i).printSoluc();
         }
-        System.out.println("Fin Soluc");
+        System.out.println("Fin Soluc");*/
 
         System.out.println("Score : "+Score.score(soluc, d));
         Output.output(soluc);
@@ -75,7 +76,7 @@ public class Hashcode2020 {
             soluc.add(tmp);
             counter++;
             jour += tmp.T;
-            System.out.println("" + jour);
+            //System.out.println("" + jour);
         }
         if (jour > d) {
             soluc.remove(soluc.size() - 1);

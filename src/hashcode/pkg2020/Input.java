@@ -31,7 +31,7 @@ public class Input {
         int B = 0, L = 0, D = 0;
         BufferedReader reader = null;
         try {
-            reader = new BufferedReader(new FileReader("a_example.txt"));
+            reader = new BufferedReader(new FileReader("f_libraries_of_the_world.txt"));
             String S = reader.readLine();
             String Tab[] = S.split(" ");
             B = Integer.valueOf(Tab[0]);
@@ -56,12 +56,12 @@ public class Input {
                 }
                 ListeLibrairies.add(new Librairie(i,Integer.valueOf(Tab3[0]), Integer.valueOf(Tab3[1]), Integer.valueOf(Tab3[2]), Livres));
             }
-            for (int i = 0; i < ListeLibrairies.size(); i++) {
+            /*for (int i = 0; i < ListeLibrairies.size(); i++) {
                 for (int j = 0; j < ListeLibrairies.get(i).livres.size(); j++) {
                     System.out.print(ListeLibrairies.get(i).livres.get(j).id + " ");
                 }
                 System.out.println("");
-            }
+            }*/
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Input.class.getName()).log(Level.SEVERE, null, ex);
