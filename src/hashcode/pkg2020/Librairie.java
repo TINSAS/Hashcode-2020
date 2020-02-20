@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author Leon
  */
 public class Librairie {
+
     public int id;
     public int N;
     public int T;
@@ -27,6 +28,12 @@ public class Librairie {
         this.livres = livres;
         this.livresScanne = new ArrayList<>();
     }
-    
-    
+
+    public void print() {
+        System.out.println("Librairie " + id);
+        for (int i = 0; i < livres.size(); i++) {
+            livres.get(i).print();
+        }
+    }
+
 }

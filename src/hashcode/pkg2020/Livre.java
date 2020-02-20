@@ -17,4 +17,8 @@ public class Livre {
         this.id = id;
         this.valeur = valeur;
     }
+
+    void print() {
+        System.out.println("    Livre "+id+" de valeur "+valeur);
+    }
 }
