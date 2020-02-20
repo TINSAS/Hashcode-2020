@@ -12,7 +12,7 @@ package hashcode.pkg2020;
 public class Livre implements Comparable<Livre>{
     public int id;
     public Integer valeur;
-    public int Scanné=0;
+    public boolean Scanne=false;
 
     public Livre(int id, int valeur) {
         this.id = id;
