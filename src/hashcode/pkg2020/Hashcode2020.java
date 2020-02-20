@@ -88,10 +88,10 @@ public class Hashcode2020 {
             int jour2 = tmp.jourDebut;
             int counter2=0;
             while (jour2<d && counter2<tmp.livres.size()) { 
-                for(int j=0;i<tmp.M;i++){
-                   if(tmp.livres.get(counter2).Scanné==0){
+                for(int j=0;j<tmp.M;j++){
+                   if(tmp.livres.get(counter2).Scanne==false){
                     tmp.livresScanne.add(tmp.livres.get(counter2));
-                    tmp.livres.get(counter2).Scanné=1;
+                    tmp.livres.get(counter2).Scanne=true;
                 }
                 counter2++; 
                 }
