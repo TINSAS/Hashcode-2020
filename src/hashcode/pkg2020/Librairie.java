@@ -11,12 +11,13 @@ import java.util.ArrayList;
  *
  * @author Leon
  */
-public class Librairie {
+public class Librairie implements Comparable<Librairie>{
 
     public int id;
     public int N;
     public int T;
     public int M;
+    public Integer somme;
     public ArrayList<Livre> livres;
     public ArrayList<Livre> livresScanne;
 
@@ -27,6 +28,10 @@ public class Librairie {
         this.M = M;
         this.livres = livres;
         this.livresScanne = new ArrayList<>();
+        
+        for (int i = 0; i < livres.size(); i++) {
+            somme+=livres.get(i).valeur;
+        }
     }
 
     public void print() {
@@ -35,5 +40,13 @@ public class Librairie {
             livres.get(i).print();
         }
     }
+
+    @Override
+    public int compareTo(Librairie arg0) {
+        return this.somme.compareTo(arg0.somme);
+    }
+    
+    
+    
 
 }
