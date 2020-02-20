@@ -34,8 +34,9 @@ public class Librairie implements Comparable<Librairie>{
         for (int i = 0; i < livres.size(); i++) {
             scoreLib+=livres.get(i).valeur;
         }
-        System.out.println("Score Lib :"+scoreLib);
-        scoreLib/=T*T*T*T*T*T;
+        System.out.println("Score Lib :"+scoreLib+"  "+T);
+        System.out.println(""+scoreLib/T/T/T/T/T);
+        scoreLib=scoreLib/T/T/T/T/T;
         System.out.println("    Score Lib :"+scoreLib);
     }
 
