@@ -19,21 +19,18 @@ import java.util.logging.Logger;
  */
 public class Output {
 
-    public static void researchLastIndex(ArrayList<Integer> Pizza, int Index, ArrayList<Integer> T) {
-        T.add(Pizza.indexOf(Index));
-        Pizza.set(Pizza.indexOf(Index), -1);
-    }
-
-    public static void output(ArrayList<Integer> list) {
-        ArrayList<Integer> T = new ArrayList<Integer>();
+    public static void output(ArrayList<Librairie> list) {
 
         File output = new File("output.in");
         try {
             FileWriter fw = new FileWriter(output);
             
             fw.write(list.size() + "\n");
-            for (int i = 0; i < T.size(); i++) {
-                fw.write(T.get(i) + " ");
+            for (int i = 0; i < list.size(); i++) {
+                fw.write(list.get(i).id + " "+list.get(i).livresScanne.size());
+                    for(int j=0; j<list.get(i).livresScanne.size();j++){
+                      fw.write(list.get(i).livresScanne.get(j).id + " ");
+                    }
             }
             fw.close();
         } catch (IOException ex) {
