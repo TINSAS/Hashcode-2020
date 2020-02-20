@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Leon
  */
-public class Librairie implements Comparable<Librairie>{
+public class Librairie implements Comparable<Librairie> {
 
     public int id;
     public int N;
@@ -21,6 +21,7 @@ public class Librairie implements Comparable<Librairie>{
     public ArrayList<Livre> livres;
     public ArrayList<Livre> livresScanne;
     public int jourDebut;
+    public int power;
 
     public Librairie(int id, int N, int T, int M, ArrayList<Livre> livres) {
         this.id = id;
@@ -29,27 +30,29 @@ public class Librairie implements Comparable<Librairie>{
         this.M = M;
         this.livres = livres;
         this.livresScanne = new ArrayList<>();
-        this.scoreLib=0;
-        
-        for (int i = 0; i < livres.size(); i++) {
-            scoreLib+=livres.get(i).valeur;
-        }
-        //System.out.println("Score Lib :"+scoreLib+"  "+T);
-        //System.out.println(""+scoreLib/T/T/T/T/T);
-        scoreLib=scoreLib/T;
-        //System.out.println("    Score Lib :"+scoreLib);
-        scoreLib+=(int)(0.01*scoreLib*Math.random());
+        this.scoreLib = 0;
+
+
     }
 
     public void print() {
-        System.out.println("Librairie " + id);
+        //System.out.println("Librairie " + id);
         for (int i = 0; i < livres.size(); i++) {
             livres.get(i).print();
         }
     }
+    public void calculScorLib(double power){
+        for (int i = 0; i < livres.size(); i++) {
+            scoreLib += livres.get(i).valeur;
+        }
+        //System.out.println("Score Lib :"+scoreLib+"  "+T);
+        //System.out.println(""+scoreLib/T/T/T/T/T);
+        this.scoreLib = this.scoreLib / (int) Math.pow(T, power);
+        //System.out.println("    Score Lib :"+scoreLib);
+    }
 
     public void printSoluc() {
-        System.out.println("Librairie " + id);
+        //System.out.println("Librairie " + id);
         for (int i = 0; i < livresScanne.size(); i++) {
             livresScanne.get(i).print();
         }
@@ -59,8 +62,5 @@ public class Librairie implements Comparable<Librairie>{
     public int compareTo(Librairie arg0) {
         return scoreLib.compareTo(arg0.scoreLib);
     }
-    
-    
-    
 
 }
