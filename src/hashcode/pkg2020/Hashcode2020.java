@@ -108,19 +108,8 @@ public class Hashcode2020 {
                 soluc.add(tmp);
                 counter++;
                 jour += tmp.T;
-            } else {
-                counter++;
-            }
-            //System.out.println("" + jour);
-        }
-        if (jour > d) {
-            soluc.remove(soluc.size() - 1);
-        }
-
-        for (int i = 0; i < soluc.size(); i++) {
-            tmp = soluc.get(i);
-
-            Collections.sort(tmp.livres);
+                
+            Collections.sort(tmp.livres, Collections.reverseOrder());
             int jour2 = tmp.jourDebut;
             int counter2 = 0;
             while (jour2 < d && counter2 < tmp.livres.size()) {
@@ -137,6 +126,19 @@ public class Hashcode2020 {
 
                 jour2 += 1;
             }
+
+            } else {
+                counter++;
+            }
+            //System.out.println("" + jour);
+        }
+        if (jour > d) {
+            soluc.remove(soluc.size() - 1);
+        }
+
+        for (int i = 0; i < soluc.size(); i++) {
+            tmp = soluc.get(i);
+
         }
         return soluc;
     }
