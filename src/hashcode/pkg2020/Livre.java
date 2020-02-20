@@ -10,8 +10,8 @@ package hashcode.pkg2020;
  * @author Leon
  */
 public class Livre {
-    int id;
-    int valeur;
+    public int id;
+    public int valeur;
 
     public Livre(int id, int valeur) {
         this.id = id;
