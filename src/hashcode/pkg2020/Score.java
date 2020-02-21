@@ -20,14 +20,6 @@ public class Score {
         ArrayList<Integer> books = new ArrayList(); //ArrayList des livres déjà traités
         
         ArrayList<Livre> livresScanne;
-        /*int jour=0;
-        int jourOuvertureRestant=0;
-        while(jour<day){
-            if(jourOuvertureRestant==0){
-                
-            }
-        }*/
-        
         
         for (int i = 0; i < Librairies.size(); i++) { //On parcourt chaque librairie
             signup = signup  + Librairies.get(i).T ;
@@ -42,10 +34,10 @@ public class Score {
                 }
             }
         }
-        System.out.println("Jour utilisé " +signup);
-        if(score_d != score){
-            System.err.println("SCORE FINAL DIFFERENT DU SCORE REEL T NUL LEON");
-        }
+       // System.out.println("Jour utilisé " +signup);
+       // if(score_d != score){
+         //   System.err.println("SCORE FINAL DIFFERENT DU SCORE REEL T NUL LEON");
+       // }
         return (score);
     }
 }
