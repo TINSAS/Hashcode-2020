@@ -18,17 +18,9 @@ public class Score {
         int score_d = 0 ; //Score après les D-1 jours
         int signup = 0 ; //Compter le nombre de jour d'enregistrements
         ArrayList<Integer> books = new ArrayList(); //ArrayList des livres déjà traités
-        
+
         ArrayList<Livre> livresScanne;
-        /*int jour=0;
-        int jourOuvertureRestant=0;
-        while(jour<day){
-            if(jourOuvertureRestant==0){
-                
-            }
-        }*/
-        
-        
+
         for (int i = 0; i < Librairies.size(); i++) { //On parcourt chaque librairie
             signup = signup  + Librairies.get(i).T ;
             livresScanne = Librairies.get(i).livresScanne;

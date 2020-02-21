@@ -29,30 +29,7 @@ public class Hashcode2020 {
         //System.out.println("" + monde);
         // System.out.println("" + d);
         int l = monde.size();
-        /*ArrayList<Librairie> monde = new ArrayList<>();
-        int d = 7;
-        int l = 2;
 
-        ArrayList<Livre> lib1 = new ArrayList<>();
-        lib1.add(new Livre(0, 1));
-        lib1.add(new Livre(1, 2));
-        lib1.add(new Livre(2, 3));
-        lib1.add(new Livre(3, 6));
-        lib1.add(new Livre(4, 5));
-        monde.add(new Librairie(0, 5, 2, 2, lib1));
-
-        ArrayList<Livre> lib2 = new ArrayList<>();
-        lib2.add(new Livre(3, 6));
-        lib2.add(new Livre(2, 3));
-        lib2.add(new Livre(5, 4));
-        lib2.add(new Livre(0, 1));
-        monde.add(new Librairie(1, 4, 3, 1, lib2));*/
-
- /*System.out.println("Monde : ");
-        for (int i = 0; i < monde.size(); i++) {
-            monde.get(i).print();
-        }
-        System.out.println("Fin Monde");*/
         ArrayList<Librairie> soluc = new ArrayList<Librairie>();
         soluc = trouveSolution(monde, d, l, 0, livres);
         //System.out.println("Score : " + Score.score(soluc, d));
@@ -124,7 +101,7 @@ public class Hashcode2020 {
                 }*/
                 //Collections.sort(monde, Collections.reverseOrder());
 
-                
+
                 Collections.sort(tmp.livres, Collections.reverseOrder());
                 int jour2 = tmp.jourDebut;
                 int counter2 = 0;
@@ -147,7 +124,6 @@ public class Hashcode2020 {
                 monde.remove(0);
                 //counter++;
             }
-            //System.out.println("" + jour);
         }
         if (jour > d) {
             soluc.remove(soluc.size() - 1);

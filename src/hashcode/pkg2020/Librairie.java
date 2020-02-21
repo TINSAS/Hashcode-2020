@@ -54,7 +54,6 @@ public class Librairie implements Comparable<Librairie> {
     }
 
     public void printSoluc() {
-        //System.out.println("Librairie " + id);
         for (int i = 0; i < livresScanne.size(); i++) {
             livresScanne.get(i).print();
         }
