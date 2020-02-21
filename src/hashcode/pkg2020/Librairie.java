@@ -44,18 +44,11 @@ public class Librairie implements Comparable<Librairie> {
     public void calculScorLib(double power){
         for (int i = 0; i < livres.size(); i++) {
             scoreLib += livres.get(i).valeur;
-            if((System.currentTimeMillis()%2)== System.currentTimeMillis()){
-             scoreLib+= livres.get(i).valeur / 2 ;
-            }
         }
-        //System.out.println("Score Lib :"+scoreLib+"  "+T);
-        //System.out.println(""+scoreLib/T/T/T/T/T);
         this.scoreLib = this.scoreLib / (int) Math.pow(T, power);
-        //System.out.println("    Score Lib :"+scoreLib);
     }
 
     public void printSoluc() {
-        //System.out.println("Librairie " + id);
         for (int i = 0; i < livresScanne.size(); i++) {
             livresScanne.get(i).print();
         }
