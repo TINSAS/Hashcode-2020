@@ -32,7 +32,6 @@ public class Librairie implements Comparable<Librairie> {
         this.livresScanne = new ArrayList<>();
         this.scoreLib = 0;
 
-        
     }
 
     public void print() {
@@ -41,13 +40,16 @@ public class Librairie implements Comparable<Librairie> {
             livres.get(i).print();
         }
     }
-    public void calculScorLib(double power){
+
+    public void calculScorLib(double power) {
         for (int i = 0; i < livres.size(); i++) {
-            scoreLib += livres.get(i).valeur;
+            if (livres.get(i).Scanne == false) {
+                scoreLib += livres.get(i).valeur;
+            }
         }
         //System.out.println("Score Lib :"+scoreLib+"  "+T);
         //System.out.println(""+scoreLib/T/T/T/T/T);
-        this.scoreLib = this.scoreLib / (int) Math.pow(T, power);
+        this.scoreLib = (int)(this.scoreLib / Math.pow(T, power));
         //System.out.println("    Score Lib :"+scoreLib);
     }
 

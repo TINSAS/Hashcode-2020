@@ -35,8 +35,8 @@ public class Input {
             //reader = new BufferedReader(new FileReader("b_read_on.txt"));
             //reader = new BufferedReader(new FileReader("c_incunabula.txt"));
             //reader = new BufferedReader(new FileReader("d_tough_choices.txt"));
-            //reader = new BufferedReader(new FileReader("e_so_many_books.txt"));
-            reader = new BufferedReader(new FileReader("f_libraries_of_the_world.txt"));
+            reader = new BufferedReader(new FileReader("e_so_many_books.txt"));
+            //reader = new BufferedReader(new FileReader("f_libraries_of_the_world.txt"));
             String S = reader.readLine();
             String Tab[] = S.split(" ");
             B = Integer.valueOf(Tab[0]);
@@ -102,7 +102,7 @@ public class Input {
 //                Logger.getLogger(Input.class.getName()).log(Level.SEVERE, null, ex);
 //            }
 //        }
-System.out.println(""+ListeLibrairies);
-        return new Transport(D, ListeLibrairies);
+//System.out.println(""+ListeLibrairies);
+        return new Transport(D, ListeLibrairies, ListeLivres);
     }
 }

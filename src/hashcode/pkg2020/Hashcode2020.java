@@ -20,13 +20,14 @@ public class Hashcode2020 {
      */
     public static void main(String[] args) {
         int power = 1, Max;
-        double ind=0;
+        double ind = 0;
         Transport transport = Input.input();
 
         int d = transport.D;
         ArrayList<Librairie> monde = transport.ListLibrairies;
+        ArrayList<Livre> livres = transport.ListeLivres;
         //System.out.println("" + monde);
-       // System.out.println("" + d);
+        // System.out.println("" + d);
         int l = monde.size();
         /*ArrayList<Librairie> monde = new ArrayList<>();
         int d = 7;
@@ -53,35 +54,35 @@ public class Hashcode2020 {
         }
         System.out.println("Fin Monde");*/
         ArrayList<Librairie> soluc = new ArrayList<Librairie>();
-        soluc = trouveSolution(monde, d, l, 0);
+        soluc = trouveSolution(monde, d, l, 0, livres);
         //System.out.println("Score : " + Score.score(soluc, d));
-        Max = Score.score(soluc, d);
-        for (int i = 1; i <= 10; i++) {
-            soluc = trouveSolution(monde, d, l, i);
+        Max = 0;
+        for (int i = 0; i <= 10; i++) {
+            soluc = trouveSolution(monde, d, l, i, livres);
             //System.out.println("Score : " + Score.score(soluc, d));
-            if(Score.score(soluc, d)>Max){
-                Max=Score.score(soluc, d);
-                ind =i;
-                //System.out.println(ind);
+            if (Score.score(soluc, d) > Max) {
+                Max = Score.score(soluc, d);
+                ind = i;
             }
         }
-        for (int i = 1; i <= 10; i++) {
-            soluc = trouveSolution(monde, d, l, ind+0.1*i);
+        soluc = trouveSolution(monde, d, l, ind, livres);
+        System.out.println("Score final: " + Score.score(soluc, d));
+
+        Max = 0;
+        double indFinal = 0;
+        for (int i = -5; i <= 5; i++) {
+            if(ind + 0.1 * i<0) continue;
+            soluc = trouveSolution(monde, d, l, ind + 0.1 * i, livres);
             //System.out.println("Score : " + Score.score(soluc, d));
-            if(Score.score(soluc, d)>Max){
-                Max=Score.score(soluc, d);
-                ind =ind+0.1*i;
-                //System.out.println(ind);
+            if (Score.score(soluc, d) > Max) {
+                Max = Score.score(soluc, d);
+                indFinal = ind + 0.1 * i;
             }
         }
         //System.out.println(ind);
-        
-        soluc = trouveSolution(monde, d, l, ind);
-        System.out.println("Score : " + Score.score(soluc, d));
-        
-        
-        
 
+        soluc = trouveSolution(monde, d, l, indFinal, livres);
+        System.out.println("Score final: " + Score.score(soluc, d));
 
         /*System.out.println("Soluc : ");
         for (int i = 0; i < soluc.size(); i++) {
@@ -91,7 +92,15 @@ public class Hashcode2020 {
         Output.output(soluc);
     }
 
-    public static ArrayList<Librairie> trouveSolution(ArrayList<Librairie> monde, int d, int l, double power) {
+    public static ArrayList<Librairie> trouveSolution(ArrayList<Librairie> monde, int d, int l, double power, ArrayList<Livre> livres) {
+        for (int j = 0; j < livres.size(); j++) {
+            livres.get(j).Scanne = false;
+        }
+        for (int i = 0; i < monde.size(); i++) {
+            monde.get(i).livresScanne.clear();
+        }
+
+        monde = (ArrayList<Librairie>) monde.clone();
         ArrayList<Librairie> soluc = new ArrayList<>();
         for (int i = 0; i < monde.size(); i++) {
             monde.get(i).calculScorLib(power);
@@ -99,36 +108,44 @@ public class Hashcode2020 {
         Collections.sort(monde, Collections.reverseOrder());
 
         int jour = 0;
-        int counter = 0;
+        //int counter = 0;
         Librairie tmp;
-        while (jour < d && counter < l) {
-            tmp = monde.get(counter);
-            if ((d - jour - tmp.T - 1) > 0) {
+        while (jour < d && !monde.isEmpty()) {
+            tmp = monde.get(0);
+            tmp.calculScorLib(power);
+            if ((d - jour - tmp.T - 1) > 0 && tmp.scoreLib!=0) {
                 tmp.jourDebut = jour;
                 soluc.add(tmp);
-                counter++;
+                monde.remove(0);
+                //counter++;
                 jour += tmp.T;
+                /*for (int i = 0; i < monde.size(); i++) {
+                    monde.get(i).calculScorLib(power);
+                }*/
+                //Collections.sort(monde, Collections.reverseOrder());
+
                 
-            Collections.sort(tmp.livres, Collections.reverseOrder());
-            int jour2 = tmp.jourDebut;
-            int counter2 = 0;
-            while (jour2 < d && counter2 < tmp.livres.size()) {
-                for (int j = 0; j < tmp.M; j++) {
-                    if (counter2 >= tmp.livres.size()) {
-                        break;
+                Collections.sort(tmp.livres, Collections.reverseOrder());
+                int jour2 = tmp.jourDebut;
+                int counter2 = 0;
+                while (jour2 < d && counter2 < tmp.livres.size()) {
+                    for (int j = 0; j < tmp.M; j++) {
+                        if (counter2 >= tmp.livres.size()) {
+                            break;
+                        }
+                        if (tmp.livres.get(counter2).Scanne == false) {
+                            tmp.livresScanne.add(tmp.livres.get(counter2));
+                            tmp.livres.get(counter2).Scanne = true;
+                        }
+                        counter2++;
                     }
-                    if (tmp.livres.get(counter2).Scanne == false) {
-                        tmp.livresScanne.add(tmp.livres.get(counter2));
-                        tmp.livres.get(counter2).Scanne = true;
-                    }
-                    counter2++;
+
+                    jour2 += 1;
                 }
 
-                jour2 += 1;
-            }
-
             } else {
-                counter++;
+                monde.remove(0);
+                //counter++;
             }
             //System.out.println("" + jour);
         }

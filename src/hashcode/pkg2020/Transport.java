@@ -15,10 +15,12 @@ class Transport {
 
     public int D;
     public ArrayList<Librairie> ListLibrairies;
+    public ArrayList<Livre> ListeLivres;
 
-    public Transport(int N, ArrayList<Librairie> list1) {
+    public Transport(int N, ArrayList<Librairie> list1, ArrayList<Livre> ListeLivres) {
         this.D = N;
         this.ListLibrairies = list1;
+        this.ListeLivres = ListeLivres;
         
     }
 
